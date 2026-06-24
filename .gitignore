@@ -1,12 +1,21 @@
 .env
+
+# generated per-user config (copy from config.yaml.example)
+config.yaml
+
+# seen files — generated at runtime, contain personal video history
+seen.txt
+seen_*.txt
+seen.db
+
 __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
 dist/
 .DS_Store
-seen_*.txt
-seen.db
 *.log
 .idea/
+
+# generated video files (can be large)
 *.mp4
