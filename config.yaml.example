@@ -14,13 +14,22 @@ generation:
   # "Pending" = enabled in yaml AND not yet generated (not in seen.txt)
   threshold: 10
 
+# Where jobs_<lang>.yaml and seen_<lang>.txt files live.
+# Lets you run `refill` / `init-seen` without passing --jobs-dir / --seen-dir
+# every time. Explicit CLI flags always override these.
+# Relative paths are resolved against this config.yaml's location.
+# Leave the whole section out (or set to null) to keep using
+# --jobs-dir / the current directory, like before.
+#
+# paths:
+#   jobs_dir: /your/path/to/jobs
+#   seen_dir: /your/path/to/seen   # optional, defaults to jobs_dir if omitted
+
 # Directories to scan when running init_seen.py (or `init-seen` if installed via uv).
 # These are scanned for existing .mp4 files to populate seen.txt (or seen_<suffix>.txt).
 # Add as many paths as you need. Leave empty to always pass --dir at runtime instead.
 # Example:
-# scan_dirs:
-#   - /your/path/to/videos
-#   - /your/path/to/videos/old_videos
+# scan_dirs: [/path/one, /path/two]
 #
 scan_dirs: []
 
