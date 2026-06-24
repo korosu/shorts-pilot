@@ -1,0 +1,70 @@
+# ============================================================
+# shorts-pilot configuration
+# API keys and model go in .env — not here.
+# ============================================================
+
+generation:
+  # How many new jobs to generate per refill call
+  count: 21
+
+  # Refill triggers when pending jobs drop below this number.
+  # "Pending" = enabled in yaml AND not yet generated (not in seen.txt)
+  threshold: 10
+
+# Directories to scan when running init_seen.py.
+# These are scanned for existing .mp4 files to populate seen.txt (or seen_<suffix>.txt).
+# Add as many paths as you need. Leave empty to always pass --dir at runtime instead.
+# Example:
+#   scan_dirs:
+#     - /your/path/to/videos
+#     - /your/path/to/videos/old_videos
+#
+scan_dirs: []
+
+# Language profiles — add or edit freely.
+# Each lang code must match the jobs_<lang>.yaml filename.
+langs:
+  en:
+    label: English
+    # Suffix appended to output_file stems (e.g. "" → "fact_ants.mp4")
+    # Empty suffix → seen.txt. Set to "_en" → seen_en.txt, etc.
+    file_suffix: ""
+    voice_rate_min: 1.05
+    voice_rate_max: 1.20
+    voices:
+      - gemini:aoede
+      - gemini:charon
+      - gemini:fenrir
+      - gemini:kore
+      - gemini:leda
+      - gemini:orus
+      - gemini:puck
+      - gemini:zephyr
+    # These values are written into every generated job entry
+    job_defaults:
+      video_clip_duration: 3
+      video_concat_mode: random
+      bgm_type: random
+      bgm_volume: 0.15
+      paragraph_number: 2
+
+  es:
+    label: Spanish
+    file_suffix: "_es"
+    voice_rate_min: 1.05
+    voice_rate_max: 1.15
+    voices:
+      - gemini:aoede
+      - gemini:charon
+      - gemini:fenrir
+      - gemini:kore
+      - gemini:leda
+      - gemini:orus
+      - gemini:puck
+      - gemini:zephyr
+    job_defaults:
+      video_clip_duration: 4
+      video_concat_mode: random
+      bgm_type: random
+      bgm_volume: 0.15
+      paragraph_number: 2

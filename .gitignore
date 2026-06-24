@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+.DS_Store
+seen_*.txt
+seen.db
+*.log
+.idea/
+*.mp4
