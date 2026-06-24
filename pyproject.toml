@@ -9,6 +9,10 @@ dependencies = [
     "requests>=2.31",
 ]
 
+[project.scripts]
+refill = "refill:main"
+init-seen = "init_seen:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
