@@ -1,7 +1,7 @@
 [project]
 name = "shorts-pilot"
-version = "0.1.0"
-description = "Auto-generate YouTube Shorts video ideas and refill your MoneyPrinterTurbo jobs queue via LLM"
+version = "1.0.1"
+description = "Auto-generate YouTube/TikTok/Instagram shorts video ideas and refill your MoneyPrinterTurbo jobs queue via LLM"
 requires-python = ">=3.10"
 dependencies = [
     "python-dotenv>=1.0",
