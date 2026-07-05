@@ -33,6 +33,17 @@ generation:
 #
 scan_dirs: []
 
+# Themes for theme mode. When this list is non-empty, plain `refill` generates
+# short topic titles constrained to these themes (one theme per generated
+# title, picked for variety). Narrow to specific theme(s) at runtime with
+# --theme (repeatable, must match one of these). Leave empty/omit for today's
+# free-topic LLM behavior.
+#
+# theme_list:
+#   - job
+#   - animal
+#   - computer
+
 # Language profiles — add or edit freely.
 # Each lang code must match the jobs_<lang>.yaml filename.
 langs:
