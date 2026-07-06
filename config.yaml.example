@@ -71,6 +71,12 @@ langs:
       bgm_type: random
       bgm_volume: 0.15
       paragraph_number: 2
+      # Target narration duration in seconds (optional). Omit for no limit (current behavior).
+      # Format: "min-max" in seconds, or "min+" for open-ended upper bound.
+      # Recommended presets: "30-60", "60-90", "90-120", "120+". Custom ranges OK.
+      # Converted to word bounds (2.39 words/sec) and injected into video_script_prompt;
+      # paragraph_number is nudged upward (max(config, band)) but never downward.
+      # duration_range: "30-60"
 
   es:
     label: Spanish
@@ -93,3 +99,9 @@ langs:
       bgm_type: random
       bgm_volume: 0.15
       paragraph_number: 2
+      # Target narration duration in seconds (optional). Omit for no limit (current behavior).
+      # Format: "min-max" in seconds, or "min+" for open-ended upper bound.
+      # Recommended presets: "30-60", "60-90", "90-120", "120+". Custom ranges OK.
+      # Converted to word bounds (2.39 words/sec) and injected into video_script_prompt;
+      # paragraph_number is nudged upward (max(config, band)) but never downward.
+      # duration_range: "60-90"
