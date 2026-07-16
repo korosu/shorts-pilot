@@ -1,6 +1,5 @@
 .env
 
-# generated per-user config (copy from config.yaml.example)
 config.yaml
 
 # seen files — generated at runtime, contain personal video history
