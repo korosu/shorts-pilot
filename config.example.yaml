@@ -33,25 +33,11 @@ generation:
 #
 scan_dirs: []
 
-# Themes for theme mode. When this list is non-empty, plain `refill` generates
-# short topic titles constrained to these themes (one theme per generated
-# title, picked for variety). Narrow to specific theme(s) at runtime with
-# --theme (repeatable, must match one of these). Leave empty/omit for today's
-# free-topic LLM behavior.
-#
-# theme_list:
-#   - job
-#   - animal
-#   - computer
-
-# Language profiles — add or edit freely.
 # Language profiles — add or edit freely.
 # file_suffix determines jobs filename: "" → jobs.yaml, "_es" → jobs_es.yaml, etc.
 langs:
   en:
     label: English
-    # Suffix appended to output_file stems (e.g. "" → "fact_ants.mp4")
-    # Empty suffix → jobs.yaml + seen.txt. Set to "_es" → jobs_es.yaml + seen_es.txt.
     file_suffix: ""
     voice_rate_min: 1.05
     voice_rate_max: 1.20
@@ -64,6 +50,12 @@ langs:
       - gemini:orus
       - gemini:puck
       - gemini:zephyr
+    # Themes for this language's theme mode. When non-empty, `refill` generates
+    # short topic titles constrained to these themes. Omit for free-topic LLM.
+    # theme_list:
+    #   - job
+    #   - animal
+    #   - computer
 
     # These values are written into every generated job entry
     job_defaults:
