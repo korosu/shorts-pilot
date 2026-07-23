@@ -20,13 +20,17 @@ def alert(msg: str, settings: Settings) -> None:
     """
     if not settings.telegram_token or not settings.telegram_chat_id:
         return
+    text = f"[{settings.telegram_prefix}] {msg}" if settings.telegram_prefix else msg
     try:
         resp = requests.post(
             f"https://api.telegram.org/bot{settings.telegram_token}/sendMessage",
-            json={"chat_id": settings.telegram_chat_id, "text": msg},
+            json={"chat_id": settings.telegram_chat_id, "text": text},
             timeout=10,
         )
         if not resp.ok:
-            print(f"[shorts-pilot] Telegram returned {resp.status_code}: {resp.text[:200]}")
+            print(
+                f"[{settings.telegram_prefix}] Telegram returned {resp.status_code}: "
+                f"{resp.text.strip()[:200]}"
+            )
     except Exception as exc:
-        print(f"[shorts-pilot] Telegram send failed: {exc}")
+        print(f"[{settings.telegram_prefix}] Telegram send failed: {exc}")

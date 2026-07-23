@@ -6,6 +6,8 @@
 # config.yaml is gitignored so your changes won't be overwritten by git pull.
 # ============================================================
 
+telegram_prefix: "shorts-pilot"
+
 generation:
   # How many new jobs to generate per refill call
   count: 21
