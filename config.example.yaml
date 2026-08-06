@@ -16,6 +16,25 @@ generation:
   # "Pending" = enabled in yaml AND not yet generated (not in seen.txt)
   threshold: 10
 
+  # Reasoning-model support. Optional — leave this whole block out and
+  # nothing changes. Only relevant for a self-hosted OpenAI-compatible
+  # backend (vLLM / SGLang / NVIDIA NIM) serving a model that turns on
+  # "thinking" by default (e.g. DeepSeek-R1, Qwen3-thinking). Those
+  # backends can burn the entire max_tokens budget on the hidden reasoning
+  # draft and return an empty final answer if you don't ask for less
+  # reasoning / more room.
+  #
+  reasoning_enabled: false    # true | false | omit (omit = untouched, as before)
+  # reasoning_effort: "medium" # none|low|medium|high|xhigh|max — backend-dependent
+  # reasoning_max_tokens: 8192 # extra tokens added ON TOP of the normal
+  #                            # per-job budget, reserved for the reasoning draft
+  #
+  # NOTE: this maps to the `chat_template_kwargs.reasoning_effort` field
+  # used by vLLM/SGLang/NIM. It does NOT apply to official OpenAI reasoning
+  # models (o-series/gpt-5, which take a top-level `reasoning_effort`
+  # instead) or to Anthropic's extended thinking (a different mechanism
+  # entirely) — check your provider's docs if you're on one of those.
+
 # Where jobs.yaml / jobs_<suffix>.yaml and seen_<suffix>.txt files live.
 # Lets you run `refill` / `init-seen` without passing --jobs-dir / --seen-dir
 # every time. Explicit CLI flags always override these.
